@@ -1,0 +1,68 @@
+---
+creation Date: <% tp.file.creation_date() %>
+tags:
+  - Daily
+  - <%tp.file.title%>
+  - <%tp.date.now("YYYY-[W]ww",0)%>
+
+linklist:
+  - "[[<%tp.date.now("YYYY-[W]ww",0)%>]]"
+aliases:
+---
+
+> Days: [[Periodic Notes/Daily Notes/<%tp.date.now("YYYY-MM-DD",-1,tp.file.title,"YYYY-MM-DD")%>|Yesterday]] <-- **[[<%tp.date.now("YYYY-MM-DD",0,tp.file.title,"YYYY-MM-DD")%>]]** --> [[Periodic Notes/Daily Notes/<%tp.date.now("YYYY-MM-DD",1,tp.file.title,"YYYY-MM-DD")%>|Tomorrow]] 
+
+# Today
+## Stand Up
+> *<%tp.date.now("dddd",0,tp.file.title,"YYYY-MM-DD")%>*
+> 
+## Change Log
+```dataview
+list
+WHERE file.cday = date("<%tp.file.title%>")
+sort file.name asc
+```
+## ToDo
+#PeriodicToDo 
+<%tp.file.cursor()%>
+### Other File ToDo's
+```dataview
+TASK
+WHERE created = date("<%tp.date.now("YYYY-MM-DD",0,tp.file.title,"YYYY-MM-DD")%>") OR start = date("<%tp.date.now("YYYY-MM-DD",0,tp.file.title,"YYYY-MM-DD")%>") OR scheduled = date("<%tp.date.now("YYYY-MM-DD",0,tp.file.title,"YYYY-MM-DD")%>") OR due = date("<%tp.date.now("YYYY-MM-DD",0,tp.file.title,"YYYY-MM-DD")%>")
+WHERE status != "x" AND status != "-"
+WHERE file.name != "<%tp.file.title%>"
+WHERE text != "" AND text != "-"
+
+SORT priority DESC
+```
+## Done
+### Completed Today
+```dataview
+TASK
+WHERE completion = date("<%tp.date.now("YYYY-MM-DD",0,tp.file.title,"YYYY-MM-DD")%>")
+WHERE text != ""
+
+
+```
+# Past
+## Remaining Tasks from Yesterday
+```dataview
+TASK
+WHERE status != "x" AND status != "-"
+WHERE created = date("<%tp.date.now("YYYY-MM-DD",-1,tp.file.title,"YYYY-MM-DD")%>") OR start = date("<%tp.date.now("YYYY-MM-DD",-1,tp.file.title,"YYYY-MM-DD")%>") OR scheduled = date("<%tp.date.now("YYYY-MM-DD",-1,tp.file.title,"YYYY-MM-DD")%>")
+WHERE text != ""
+
+SORT priority DESC
+```
+## Remaining Tasks from past Week
+```dataview
+TASK
+WHERE created >= date("<%tp.date.now("YYYY-MM-DD",-7,tp.file.title,"YYYY-MM-DD")%>") and created <= date("<%tp.date.now("YYYY-MM-DD",-2,tp.file.title,"YYYY-MM-DD")%>") OR start >= date("<%tp.date.now("YYYY-MM-DD",-7,tp.file.title,"YYYY-MM-DD")%>") and start <= date("<%tp.date.now("YYYY-MM-DD",-2,tp.file.title,"YYYY-MM-DD")%>") OR scheduled >= date("<%tp.date.now("YYYY-MM-DD",-7,tp.file.title,"YYYY-MM-DD")%>") and scheduled <= date("<%tp.date.now("YYYY-MM-DD",-2,tp.file.title,"YYYY-MM-DD")%>")
+WHERE file.name != "<%tp.file.title%>"
+WHERE status != "x" AND status != "-"
+WHERE text != ""
+
+GROUP BY file.name
+SORT created DESC
+```
+
