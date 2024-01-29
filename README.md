@@ -19,11 +19,11 @@ For any periodic note (day, week, etc) you will need to save it a folder structu
 	Files>
 	Notes>
 	Periodic Notes >
-					Daily Notes>
-					Weekly Notes> 
-					Quaterly Notes>
-					Monthly Notes>
-					Yearly notes>
+			Daily Notes>
+			Weekly Notes> 
+			Quaterly Notes>
+			Monthly Notes>
+			Yearly notes>
 
 This way the periodic notes can be tracked linearly.
 The days map from one to the next.
