@@ -20,7 +20,7 @@ list WHERE file.cday <= date("<% tp.date.weekday("YYYY-MM-DD", 6)%>") AND file.c
 ![[<% tp.date.weekday("YYYY-MM-DD", 4) %>#Stand Up]]
 # Tasks
 #PeriodicToDo 
-## Remaining From this Week
+## Remaining From This Week
 ```dataview
 TASK 
 WHERE status != "x"

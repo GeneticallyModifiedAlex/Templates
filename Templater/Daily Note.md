@@ -42,7 +42,6 @@ TASK
 WHERE completion = date("<%tp.date.now("YYYY-MM-DD",0,tp.file.title,"YYYY-MM-DD")%>")
 WHERE text != ""
 
-
 ```
 # Past
 ## Remaining Tasks from Yesterday
