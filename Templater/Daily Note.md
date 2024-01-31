@@ -8,6 +8,9 @@ tags:
 linklist:
   - "[[<%tp.date.now("YYYY-[W]ww",0)%>]]"
 aliases:
+Totals.Done: 
+Totals.ToDo:
+
 ---
 
 Days: [[Periodic Notes/1.Daily Notes/<%tp.date.now("YYYY-MM-DD",-1,tp.file.title,"YYYY-MM-DD")%>|Yesterday]] <-- **[[<%tp.date.now("YYYY-MM-DD",0,tp.file.title,"YYYY-MM-DD")%>]]** --> [[Periodic Notes/1.Daily Notes/<%tp.date.now("YYYY-MM-DD",1,tp.file.title,"YYYY-MM-DD")%>|Tomorrow]]
