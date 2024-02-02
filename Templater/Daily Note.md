@@ -8,8 +8,8 @@ tags:
 linklist:
   - "[[<%tp.date.now("YYYY-[W]ww",0)%>]]"
 aliases:
-Totals.Done: 
-Totals.ToDo:
+Totals_Task-Done: 
+Totals_Task-ToDo:
 
 ---
 
