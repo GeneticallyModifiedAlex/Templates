@@ -20,6 +20,21 @@ list WHERE file.cday <= date("<% tp.date.weekday("YYYY-MM-DD", 6)%>") AND file.c
 ![[<% tp.date.weekday("YYYY-MM-DD", 4) %>#Stand Up]]
 # Tasks
 #PeriodicToDo 
+```tracker
+searchType: frontmatter
+searchTarget: Totals_Task-Done, Totals_Task-ToDo
+folder: Periodic Notes/1.Daily Notes
+startDate: <% tp.date.weekday("YYYY-MM-DD", 0) %>
+endDate: <% tp.date.weekday("YYYY-MM-DD", 6)%>
+
+datasetName: Totals_Task-Done, Totals_Task-ToDo
+
+line:
+	title: Tasks
+	yAxisLabel: Tasks in state
+	lineColor: green, red
+	showLegend: true
+```
 ## Remaining From This Week
 ```dataview
 TASK 
