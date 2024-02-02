@@ -47,4 +47,5 @@ Group By file.name
 ```dataview
 TASK
 WHERE completion >= date("<% tp.date.weekday("YYYY-MM-DD", 0) %>") AND completion <= date("<% tp.date.weekday("YYYY-MM-DD", 6)%>") WHERE text != ""
+Group By c.date
 ```

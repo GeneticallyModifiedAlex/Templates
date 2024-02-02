@@ -46,6 +46,7 @@ TASK
 WHERE completion = date("<%tp.date.now("YYYY-MM-DD",0,tp.file.title,"YYYY-MM-DD")%>")
 WHERE text != ""
 
+Group By C.day
 ```
 # Past
 ## Remaining Tasks from Yesterday
