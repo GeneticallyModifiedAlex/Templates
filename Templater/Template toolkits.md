@@ -25,7 +25,7 @@ I use this in my [[Periodic Notes]] to refer to the last period (typically in a 
 ```
 This translates to.
 ```
-current date in format "YYYY-MM-DD", -1 day, OR use the title of the file as a refrence string
+current date in format "YYYY-MM-DD", -1 day, OR use the title of the file as a refrence string which is in format "YYYY-MM-DD"
 ```
 The only issue is that the file will default to a generic note and not save to your [[Periodic Notes]] folder.
 To fix it you have to specify the path you want.
