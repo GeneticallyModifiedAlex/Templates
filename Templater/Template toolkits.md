@@ -41,7 +41,7 @@ You also need to label the codeblock with the text 'dataview' next to opening 3 
 This section fulfils the goal of identifying [[Notes Created]], one of the main use cases of [[Periodic Notes]]. This allows a true reflection of creation from a traceability view gives context to the tasks created that day.
 ### Files Created during a Specified Date
 The following is intended for the use of periodic notes to list the files that were created during that date. This is useful as it allows future dates to be created ahead of time and still works. This currently only works for Daily notes as the [[#Insert File Title]] only inserts the title and would need more elaborate date handling to work for any other period.
-```dataview
+```
 list
 WHERE file.cday = date("<%tp.file.title%>")
 sort file.name asc
@@ -55,7 +55,7 @@ Note that this requires completion date to be turned on in settings.
 This takes the current date as a reference unless the file title (the reference string) matches the "YYYY-MM-DD" syntax (the reference format)
 As an additional check any items where text is empty (the description of the task).
 You can additionally use `WHERE status = "X"` instead, but this is unnecessary if you have completion date turned on.
-```dataview
+```
 TASK
 WHERE completion = date("<%tp.date.now("YYYY-MM-DD",0,tp.file.title,"YYYY-MM-DD")%>")
 WHERE text != ""

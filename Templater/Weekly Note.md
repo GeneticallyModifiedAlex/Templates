@@ -34,6 +34,8 @@ line:
 	yAxisLabel: Tasks in state
 	lineColor: green, red
 	showLegend: true
+	fillGap: true
+	legendPosition:
 ```
 ## Remaining From This Week
 ```dataview
