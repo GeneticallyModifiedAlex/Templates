@@ -33,7 +33,7 @@ To fix it you have to specify the path you want.
 [[Periodic Notes/1.Daily Notes/<%tp.date.now("YYYY-MM-DD",-1,tp.file.title,"YYYY-MM-DD")%>|Yesterday]]
 ```
 
-- [ ] #todo figure out how to do semantic referencing to next week etc  [created:: 2024-01-30]
+- [ ] #ToDo figure out how to do semantic referencing to next week etc  [created:: 2024-01-30]
 # Query
 All querys exist in a codeblock and require the dataview plugin.
 You also need to label the codeblock with the text 'dataview' next to opening 3 ` s (known as tylda key)
