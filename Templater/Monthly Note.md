@@ -24,7 +24,23 @@ aliases:
 
 ## Files Created
 
-## Tasks Done
+## Tasks
+```tracker
+searchType: frontmatter
+searchTarget: Totals_Task-Done, Totals_Task-ToDo
+folder: Periodic Notes/1.Daily Notes
+startDate: <% moment(tp.file.title, "YYYY-MM-DD").startOf("month").format("YYYY-MM-DD") %>
+endDate: <% moment(tp.file.title, "YYYY-MM-DD").endOf("month").format("YYYY-MM-DD") %>
 
-## Tasks Left
+datasetName: Totals_Task-Done, Totals_Task-ToDo
+
+line:
+	title: Tasks
+	yAxisLabel: Tasks in state
+	lineColor: green, red
+	showLegend: true
+```
+### Tasks Done
+
+### Tasks Left
 #PeriodicToDo
