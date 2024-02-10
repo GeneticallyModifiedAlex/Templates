@@ -1,6 +1,6 @@
 # Alex's Obsidian Templates
  
-The following are templates created by #Alex. These are Templates that are used in Alex's various Obsidian Vaults. 
+The following are templates created by #ModifiedAlex. These are Templates that are used in Alex's various Obsidian Vaults. 
 The templates hold no sensitive information or details regarding any client device that pulls or pushes to this repo. 
 The only items that are existing here are the markdown templates that need to be standardised.
 
