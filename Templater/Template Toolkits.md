@@ -74,5 +74,5 @@ WHERE text != ""
 
 ```
 
-### [[Group By - A Bug that Became a Feature]]
+### ![[Group By - A Bug that Became a Feature]]
 ![](https://publish.obsidian.md/modifiedalex/7.Blog+Posts+and+Articles/7.2.Blog+Posts/Group+By+-+A+Bug+that+Became+a+Feature)
