@@ -36,7 +36,7 @@ To fix it you have to specify the path you want.
 - [ ] #ToDo figure out how to do semantic referencing to next week etc  [created:: 2024-01-30]
 # Query
 All querys exist in a codeblock and require the dataview plugin.
-You also need to label the codeblock with the text 'dataview' next to opening 3 ` s (known as tylda key)
+You also need to label the codeblock with the text 'dataview' next to opening 3 `  s (known as tylda key)
 ## File Management
 This section fulfils the goal of identifying [[Notes Created]], one of the main use cases of [[Periodic Notes]]. This allows a true reflection of creation from a traceability view gives context to the tasks created that day.
 ### Files Created during a Specified Date
@@ -61,3 +61,6 @@ WHERE completion = date("<%tp.date.now("YYYY-MM-DD",0,tp.file.title,"YYYY-MM-DD"
 WHERE text != ""
 
 ```
+
+### [[Group By - A Bug that Became a Feature]] 
+![](https://publish.obsidian.md/modifiedalex/7.Blog+Posts+and+Articles/7.2.Blog+Posts/Group+By+-+A+Bug+that+Became+a+Feature)
