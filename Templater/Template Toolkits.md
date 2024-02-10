@@ -1,3 +1,15 @@
+---
+tags:
+  - Template
+  - Toolkits
+  - 2024-W06
+  - 2024-02-10
+aliases:
+  - Template toolkits
+linklist: 
+creation Date: 2024-02-06 19:52
+---
+
 This file covers the commands and components that are used in each template.
 This is based on the [Templater documentation](https://silentvoid13.github.io/Templater/introduction.html) which isn't great. 
 I've edited them a bit to be more useful, which requires a bit of fudging the functions. I'll define any functions that are used in the more complicated functions.
@@ -62,5 +74,5 @@ WHERE text != ""
 
 ```
 
-### [[Group By - A Bug that Became a Feature]] 
+### [[Group By - A Bug that Became a Feature]]
 ![](https://publish.obsidian.md/modifiedalex/7.Blog+Posts+and+Articles/7.2.Blog+Posts/Group+By+-+A+Bug+that+Became+a+Feature)
