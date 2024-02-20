@@ -3,7 +3,6 @@ creation Date: <% tp.file.creation_date() %>
 tags:
   - WeeklyNote
   - <%tp.file.title%>
-  - <%tp.date.now("YYYY-[W]ww",0)%>
 linklist:
   - "[[<%tp.date.now("YYYY-[M]MM",0)%>]]"
 aliases:
