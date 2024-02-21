@@ -27,7 +27,6 @@ sort file.name asc
 ```
 ## ToDo
 #PeriodicToDo 
-<%tp.file.cursor()%>
 - [ ] #ToDo Update Tasks at [[End Of Day|EOD]] [created:: <%tp.date.now("YYYY-MM-DD",0,tp.file.title,"YYYY-MM-DD")%>]
 ### Other File ToDo's
 ```dataview
