@@ -3,7 +3,7 @@ creation Date: <% tp.file.creation_date() %>
 tags:
   - Daily
   - <%tp.file.title%>
-  - <%tp.date.now("YYYY-[W]ww",0)%>
+  - <% moment(tp.file.title, "YYYY-MM-DD").format("YYYY-[W]ww") %>
 
 linklist:
   - "[[<%tp.date.now("YYYY-[W]ww",0)%>]]"

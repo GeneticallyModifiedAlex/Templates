@@ -38,6 +38,7 @@ line:
 	title: Tasks
 	yAxisLabel: Tasks in state
 	lineColor: green, red
+	fillGap: true
 	showLegend: true
 ```
 ### Tasks Done
