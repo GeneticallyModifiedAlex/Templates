@@ -8,4 +8,3 @@ aliases: []
 linklist: []
 creation Date: <% tp.file.creation_date()%>
 ---
-<% tp.file.cursor()%>
