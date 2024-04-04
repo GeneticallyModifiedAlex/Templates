@@ -20,9 +20,16 @@ Days: [[Periodic Notes/1.Daily Notes/<%tp.date.now("YYYY-MM-DD",-1,tp.file.title
 > *<%tp.date.now("dddd",0,tp.file.title,"YYYY-MM-DD")%>*
 > 
 ## Change Log
+Created Today:
 ```dataview
 list
 WHERE file.cday = date("<%tp.file.title%>")
+sort file.name asc
+```
+Modified Today(may change due to later modifications):
+```dataview
+list
+WHERE file.mday = date("<%tp.file.title%>") AND file.cday != date("<%tp.file.title%>")
 sort file.name asc
 ```
 ## ToDo
