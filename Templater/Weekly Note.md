@@ -8,8 +8,16 @@ linklist:
 aliases:
 ---
 # ChangLog
+Created:
 ```dataview
 list WHERE file.cday <= date("<% tp.date.weekday("YYYY-MM-DD", 6)%>") AND file.cday >= date("<% tp.date.weekday("YYYY-MM-DD", 0) %>") sort file.name asc
+```
+Modified (May change with later modifications):
+```dataview
+list 
+WHERE (file.mday <= date("<% tp.date.weekday("YYYY-MM-DD", 6)%>") AND file.mday >= date("<% tp.date.weekday("YYYY-MM-DD", 0) %>")) AND (file.cday != (date("<% tp.date.weekday("YYYY-MM-DD", 0) %>") OR date("<% tp.date.weekday("YYYY-MM-DD", 0) %>") OR date("<% tp.date.weekday("YYYY-MM-DD", 0) %>") OR date("<% tp.date.weekday("YYYY-MM-DD", 1) %>") OR date("<% tp.date.weekday("YYYY-MM-DD", 2) %>") OR date("<% tp.date.weekday("YYYY-MM-DD", 3) %>") OR date("<% tp.date.weekday("YYYY-MM-DD", 4) %>") OR date("<% tp.date.weekday("YYYY-MM-DD", 5) %>") OR date("<% tp.date.weekday("YYYY-MM-DD", 6) %>")))
+
+sort file.name asc
 ```
 # What Happened
 ![[<% tp.date.weekday("YYYY-MM-DD", 0) %>#Stand Up]]
