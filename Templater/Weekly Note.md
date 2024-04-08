@@ -29,17 +29,17 @@ sort file.name asc
 #PeriodicToDo 
 ```tracker
 searchType: frontmatter
-searchTarget: Totals_Task-Done, Totals_Task-ToDo
+searchTarget: Totals_Task-Done, Totals_Task-ToDo,Totals_Task-total,Daily_New_task
 folder: Periodic Notes/1.Daily Notes
 startDate: <% tp.date.weekday("YYYY-MM-DD", 0) %>
 endDate: <% tp.date.weekday("YYYY-MM-DD", 6)%>
 
-datasetName: Totals_Task-Done, Totals_Task-ToDo
+datasetName: Done,ToDo,total,new
 
 line:
 	title: Tasks
 	yAxisLabel: Tasks in state
-	lineColor: green, red
+	lineColor: green, red, yellow,blue
 	showLegend: true
 	fillGap: true
 	legendPosition:
