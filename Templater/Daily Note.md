@@ -10,7 +10,8 @@ linklist:
 aliases:
 Totals_Task-Done: 
 Totals_Task-ToDo:
-
+Totals_Task-total:
+Daily_New_task:
 ---
 
 Days: [[Periodic Notes/1.Daily Notes/<%tp.date.now("YYYY-MM-DD",-1,tp.file.title,"YYYY-MM-DD")%>|Yesterday]] <-- **[[<%tp.date.now("YYYY-MM-DD",0,tp.file.title,"YYYY-MM-DD")%>]]** --> [[Periodic Notes/1.Daily Notes/<%tp.date.now("YYYY-MM-DD",1,tp.file.title,"YYYY-MM-DD")%>|Tomorrow]]
