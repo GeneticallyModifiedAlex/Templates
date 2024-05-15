@@ -20,6 +20,7 @@ Days: [[Periodic Notes/1.Daily Notes/<%tp.date.now("YYYY-MM-DD",-1,tp.file.title
 ## Stand Up
 > *<%tp.date.now("dddd",0,tp.file.title,"YYYY-MM-DD")%>*
 > 
+
 ## Change Log
 Created Today:
 ```dataview
@@ -33,9 +34,11 @@ list
 WHERE file.mday = date("<%tp.file.title%>") AND file.cday != date("<%tp.file.title%>")
 sort file.name asc
 ```
+
 ## ToDo
 #PeriodicToDo 
 - [ ] #ToDo Update Tasks at [[End Of Day|EOD]] [created:: <%tp.date.now("YYYY-MM-DD",0,tp.file.title,"YYYY-MM-DD")%>]
+
 ### Other File ToDo's
 ```dataview
 TASK
@@ -46,6 +49,7 @@ WHERE text != "" AND text != "-"
 
 SORT priority DESC
 ```
+
 ## Done
 ### Completed Today
 ```dataview
@@ -55,6 +59,7 @@ WHERE text != ""
 
 Group By C.day
 ```
+
 # Past
 ## Remaining Tasks from Yesterday
 ```dataview
@@ -65,6 +70,7 @@ WHERE text != ""
 
 SORT priority DESC
 ```
+
 ## Remaining Tasks from past Week
 ```dataview
 TASK
@@ -76,4 +82,3 @@ WHERE text != ""
 GROUP BY file.name
 SORT created DESC
 ```
-
