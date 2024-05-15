@@ -27,19 +27,38 @@ sort file.name asc
 ![[<% tp.date.weekday("YYYY-MM-DD", 4) %>#Stand Up]]
 # Tasks
 #PeriodicToDo 
+## Tracker
 ```tracker
 searchType: frontmatter
-searchTarget: Totals_Task-Done, Totals_Task-ToDo,Totals_Task-total,Daily_New_task
+searchTarget: Totals_Task-Done, Totals_Task-ToDo
 folder: Periodic Notes/1.Daily Notes
 startDate: <% tp.date.weekday("YYYY-MM-DD", 0) %>
 endDate: <% tp.date.weekday("YYYY-MM-DD", 6)%>
 
-datasetName: Done,ToDo,total,new
+datasetName: Done,ToDo
 
 line:
 	title: Tasks
 	yAxisLabel: Tasks in state
-	lineColor: green, red, yellow,blue
+	lineColor: green, red
+	showLegend: true
+	fillGap: true
+	legendPosition:
+```
+
+```tracker
+searchType: frontmatter
+searchTarget: Daily_New_task
+folder: Periodic Notes/1.Daily Notes
+startDate: <% tp.date.weekday("YYYY-MM-DD", 0) %>
+endDate: <% tp.date.weekday("YYYY-MM-DD", 6)%>
+
+datasetName: New
+
+line:
+	title: Tasks
+	yAxisLabel: Tasks in state
+	lineColor: blue
 	showLegend: true
 	fillGap: true
 	legendPosition:
