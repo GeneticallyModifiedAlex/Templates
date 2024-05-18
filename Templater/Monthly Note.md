@@ -42,7 +42,20 @@ line:
 	showLegend: true
 ```
 
-### Tasks Done
-
 ### Tasks Left
-#PeriodicToDo
+#PeriodicToDo 
+```dataview
+TASK 
+WHERE status != "x"
+WHERE created >= date("<%moment(tp.file.title,"YYYY-[M]MM").startOf('month').format("YYYY-MM-DD")%>") AND created <= date("<%moment(tp.file.title,"YYYY-[M]MM").endOf('month').format("YYYY-MM-DD")%>") 
+WHERE text != ""
+Group By file.name 
+```
+z
+### Tasks Done
+```dataview
+TASK
+WHERE completion >= date("<%moment(tp.file.title,"YYYY-[M]MM").startOf('month').format("YYYY-MM-DD")%>") AND completion <= date("<%moment(tp.file.title,"YYYY-[M]MM").endOf('month').format("YYYY-MM-DD")%>") WHERE text != ""
+Group By c.date
+```
+
