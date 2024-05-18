@@ -3,17 +3,18 @@ creation Date: <% tp.file.creation_date() %>
 tags:
   - MonthlyNote
   - <%tp.file.title%>
-  - <%tp.date.now("MMMM",0)%>
-  - <%tp.date.now("YYYY",0)%>
-  - <%tp.date.now("YYYY-[Q]Q",0)%>
+  - <%moment(tp.file.title,"YYYY-[M]MM").format("MMMM")%>
+  - <%moment(tp.file.title,"YYYY-[M]MM").format("YYYY")%>
+  - <%moment(tp.file.title,"YYYY-[M]mm").format("YYYY-[Q]Q")%>
 linklist:
   - "[[ChangeLog]]"
-  - "[[<%tp.date.now("YYYY-[Q]Q",0)%>]]"
+  - "[[<%moment(tp.file.title,"YYYY-[M]MM").format("YYYY-[Q]QQ")%>]]"
 aliases:
-  - <%tp.date.now("MMMM",0)%>
-  - <%tp.date.now("MMMM YYYY",0)%>
-  - <%tp.date.now("YYYY MMMM",0)%>
+  - <%moment(tp.file.title,"YYYY-[M]MM").format("MMMM")%>
+  - <%moment(tp.file.title,"YYYY-[M]MM").format("MMMM YYYY")%>
+  - <%moment(tp.file.title,"YYYY-[M]MM").format("YYYY MMMM")%>
 ---
+
 # Thoughts
 
 ## What Happened
@@ -23,7 +24,6 @@ aliases:
 # Facts
 
 ## Files Created
-
 ## Tasks
 ```tracker
 searchType: frontmatter
@@ -41,6 +41,7 @@ line:
 	fillGap: true
 	showLegend: true
 ```
+
 ### Tasks Done
 
 ### Tasks Left
