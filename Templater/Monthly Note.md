@@ -8,12 +8,17 @@ tags:
   - <%moment(tp.file.title,"YYYY-[M]mm").format("YYYY-[Q]Q")%>
 linklist:
   - "[[ChangeLog]]"
-  - "[[<%moment(tp.file.title,"YYYY-[M]MM").format("YYYY-[Q]QQ")%>]]"
+  - '[[Periodic Notes/4.Quarterly Notes/<% moment(tp.file.title, "YYYY").format("YYYY-[Q]QQ") %>|<% moment(tp.file.title, "YYYY").format("YYYY-[Q]QQ") %>]]'
+
 aliases:
   - <%moment(tp.file.title,"YYYY-[M]MM").format("MMMM")%>
   - <%moment(tp.file.title,"YYYY-[M]MM").format("MMMM YYYY")%>
   - <%moment(tp.file.title,"YYYY-[M]MM").format("YYYY MMMM")%>
 ---
+[[Periodic Notes/3.Monthly Notes/<%moment(tp.file.title,"YYYY-[M]MM").subtract(1,'months').format("YYYY-[M]MM")%>|Last Month]] 
+
+
+[[Periodic Notes/3.Monthly Notes/<%moment(tp.file.title,"YYYY-[M]MM").add(1,'months').format("YYYY-[M]MM")%>|Next Month]]
 
 # Thoughts
 
@@ -29,8 +34,8 @@ aliases:
 searchType: frontmatter
 searchTarget: Totals_Task-Done, Totals_Task-ToDo
 folder: Periodic Notes/1.Daily Notes
-startDate: <% moment(tp.file.title, "YYYY-MM-DD").startOf("month").format("YYYY-MM-DD") %>
-endDate: <% moment(tp.file.title, "YYYY-MM-DD").endOf("month").format("YYYY-MM-DD") %>
+startDate: <% moment(tp.file.title, "YYYY-[M]MM").startOf("month").format("YYYY-MM-DD") %>
+endDate: <% moment(tp.file.title, "YYYY-[M]MM").endOf("month").format("YYYY-MM-DD") %>
 
 datasetName: Totals_Task-Done, Totals_Task-ToDo
 
@@ -58,4 +63,3 @@ TASK
 WHERE completion >= date("<%moment(tp.file.title,"YYYY-[M]MM").startOf('month').format("YYYY-MM-DD")%>") AND completion <= date("<%moment(tp.file.title,"YYYY-[M]MM").endOf('month').format("YYYY-MM-DD")%>") WHERE text != ""
 Group By c.date
 ```
-
