@@ -8,8 +8,7 @@ tags:
   - <%moment(tp.file.title,"YYYY-[M]mm").format("YYYY-[Q]Q")%>
 linklist:
   - "[[ChangeLog]]"
-  - '[[Periodic Notes/4.Quarterly Notes/<% moment(tp.file.title, "YYYY").format("YYYY-[Q]QQ") %>|<% moment(tp.file.title, "YYYY").format("YYYY-[Q]QQ") %>]]'
-
+  - '[[Periodic Notes/4.Quarterly Notes/<% moment(tp.file.title, "YYYY-[M]MM").format("YYYY-[Q]Q") %>|<% moment(tp.file.title, "YYYY-[M]MM").format("YYYY-[Q]Q") %>]]'
 aliases:
   - <%moment(tp.file.title,"YYYY-[M]MM").format("MMMM")%>
   - <%moment(tp.file.title,"YYYY-[M]MM").format("MMMM YYYY")%>
@@ -56,7 +55,6 @@ WHERE created >= date("<%moment(tp.file.title,"YYYY-[M]MM").startOf('month').for
 WHERE text != ""
 Group By file.name 
 ```
-z
 ### Tasks Done
 ```dataview
 TASK
