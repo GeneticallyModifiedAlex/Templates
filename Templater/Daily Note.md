@@ -7,7 +7,7 @@ tags:
 linklist:
   - '[[<% moment(tp.file.title, "YYYY-MM-DD").format("YYYY-[W]ww") %>]]'
 aliases: 
-Totals_Task-Done: 
+Totals_Task-Done: <%tp.file.find_tfile('2024-05-20').file.content%>
 Totals_Task-ToDo: 
 Totals_Task-total: 
 Daily_New_task:
