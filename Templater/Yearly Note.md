@@ -23,7 +23,7 @@ aliases:
 
 ## Files Created
 ```dataview
-list WHERE file.cday <= date("<% moment(tp.file.title, "YYYY-MM-DD").endOf('week').format("YYYY-MM-DD") %>") AND file.cday >= date("<% moment(tp.file.title, "YYYY").startOf('year').format("YYYY-MM-DD") %>") sort file.name asc
+list WHERE file.cday <= date("<% moment(tp.file.title, "YYYY").endOf('year').format("YYYY-MM-DD") %>") AND file.cday >= date("<% moment(tp.file.title, "YYYY").startOf('year').format("YYYY-MM-DD") %>") sort file.name asc
 ```
 
 ## Tasks Done
