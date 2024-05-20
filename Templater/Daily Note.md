@@ -1,4 +1,6 @@
 ---
+<%*const file = tp.file.find_tfile(moment(tp.file.title,"YYYY-MM-DD").subtract(1,'days').format("YYYY-MM-DD")); const fileCache = app.metadataCache.getFileCache(file); let Totals_Task_Done = 1; if (fileCache?.frontmatter["Totals_Task_Done"]) { Totals_Task_Done = fileCache.frontmatter["Totals_Task_Done"]; }-%>
+
 creation Date: <% tp.file.creation_date() %>
 tags:
   - Daily
@@ -7,18 +9,22 @@ tags:
 linklist:
   - '[[<% moment(tp.file.title, "YYYY-MM-DD").format("YYYY-[W]ww") %>]]'
 aliases: 
-Totals_Task-Done: 
-Totals_Task-ToDo: 
-Totals_Task-total: 
+Totals_Task_Done: <%Totals_Task_Done%>
+Totals_Task_ToDo: 
+Totals_Task_totals: 
 Daily_New_task:
 ---
-Days: [[Periodic Notes/1.Daily Notes/<% moment(tp.file.title, "YYYY-MM-DD").subtract(1,'days').format("YYYY-MM-DD") %>|Yesterday]] <-- **[[<% moment(tp.file.title, "YYYY-MM-DD").format("YYYY-MM-DD") %>]]** --> [[Periodic Notes/1.Daily Notes/<% moment(tp.file.title, "YYYY-MM-DD").add(1,'days').format("YYYY-MM-DD") %>|Tomorrow]]
 
 # Today
 ## Stand Up
 >*<% moment(tp.file.title, "YYYY-MM-DD").format("dddd") %>*
 > 
 > 
+
+
+
+
+<%Totals_Task_Done%>
 
 ## Change Log
 Created Today:
