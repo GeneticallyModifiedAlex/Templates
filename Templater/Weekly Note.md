@@ -9,7 +9,7 @@ aliases:
 ---
 <%moment(tp.file.title,"YYYY-[W]ww").format("YYYY-MM-DD")%>
 
-# ChangLog "
+# ChangLog
 Created:
 <%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>
 
