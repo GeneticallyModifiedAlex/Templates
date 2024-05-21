@@ -31,7 +31,7 @@ sort file.name asc
 #PeriodicToDo 
 ```tracker
 searchType: frontmatter
-searchTarget: Totals_Task-Done, Totals_Task-ToDo,Totals_Task-total,Daily_New_task
+searchTarget: Totals_Task_Done, Totals_Task_ToDo,Totals_Task_totals,Daily_New_task
 folder: Periodic Notes/1.Daily Notes
 startDate: <%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>
 endDate: <%moment(tp.file.title, "YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>

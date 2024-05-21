@@ -7,6 +7,9 @@ linklist:
   - "[[ChangeLog]]"
   - '[[<%moment(tp.file.title,"YYYY-[M]MM").format("YYYY")%>]]'
 aliases:
+  - <%tp.file.title%>
+  - <%tp.date.now("MMMM YYYY",0)%>
+  - <%tp.date.now("YYYY MMMM",0)%>
 ---
 
 [[Periodic Notes/4.Quarterly Notes/<%moment(tp.file.title,"YYYY-[Q]Q").subtract(1,'Q').format("YYYY-[Q]Q")%>|Last Month]] 

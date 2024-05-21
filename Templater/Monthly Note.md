@@ -31,12 +31,12 @@ aliases:
 ## Tasks
 ```tracker
 searchType: frontmatter
-searchTarget: Totals_Task-Done, Totals_Task-ToDo
+searchTarget: Totals_Task_Done, Totals_Task_ToDo
 folder: Periodic Notes/1.Daily Notes
 startDate: <% moment(tp.file.title, "YYYY-[M]MM").startOf("month").format("YYYY-MM-DD") %>
 endDate: <% moment(tp.file.title, "YYYY-[M]MM").endOf("month").format("YYYY-MM-DD") %>
 
-datasetName: Totals_Task-Done, Totals_Task-ToDo
+datasetName: Totals_Task_Done, Totals_Task_ToDo
 
 line:
 	title: Tasks
