@@ -21,11 +21,6 @@ Daily_New_task: 0
 > 
 > 
 
-
-
-
-<%Totals_Task_Done%>
-
 ## Change Log
 Created Today:
 ```dataview
