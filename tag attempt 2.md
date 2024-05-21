@@ -25,3 +25,7 @@ app.vault.getMarkdownFiles().filter(file => {
 });
 const tagCount = filteredFiles.length;
 ```
+
+
+<%* let out = app.metadataCache.getTags()['#Done']-%>
+<%out%>
