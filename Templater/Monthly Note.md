@@ -46,6 +46,23 @@ line:
 	showLegend: true
 ```
 
+```tracker
+searchType: frontmatter
+searchTarget: Daily_New_task
+folder: Periodic Notes/1.Daily Notes
+startDate: <% moment(tp.file.title, "YYYY-[M]MM").startOf("month").format("YYYY-MM-DD") %>
+endDate: <% moment(tp.file.title, "YYYY-[M]MM").endOf("month").format("YYYY-MM-DD") %>
+
+datasetName: Daily_New_task
+
+line:
+	title: Tasks
+	yAxisLabel: Tasks in state
+	lineColor: blue
+	fillGap: true
+	showLegend: true
+```
+
 ### Tasks Left
 #PeriodicToDo 
 ```dataview
@@ -55,6 +72,7 @@ WHERE created >= date("<%moment(tp.file.title,"YYYY-[M]MM").startOf('month').for
 WHERE text != ""
 Group By file.name 
 ```
+
 ### Tasks Done
 ```dataview
 TASK
