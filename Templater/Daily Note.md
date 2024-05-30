@@ -1,5 +1,4 @@
 ---
-
 creation Date: <% tp.date.now("YYYY-MM-DD") %>
 tags:
   - Daily
@@ -11,6 +10,7 @@ Totals_Task_Done: <%* let done = app.metadataCache.getTags()['#Done']-%><%done%>
 Totals_Task_ToDo: <%* let todo = app.metadataCache.getTags()['#ToDo']-%><%todo%>
 Totals_Task_totals: <%* let totals = done + todo-%><%totals%>
 Daily_New_task: 0
+Daily_DoneTask:
 ---
 
 # Today

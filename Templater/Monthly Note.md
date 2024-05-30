@@ -48,17 +48,17 @@ line:
 
 ```tracker
 searchType: frontmatter
-searchTarget: Daily_New_task
+searchTarget: Daily_New_task,Daily_DoneTask
 folder: Periodic Notes/1.Daily Notes
 startDate: <% moment(tp.file.title, "YYYY-[M]MM").startOf("month").format("YYYY-MM-DD") %>
 endDate: <% moment(tp.file.title, "YYYY-[M]MM").endOf("month").format("YYYY-MM-DD") %>
 
-datasetName: Daily_New_task
+datasetName: New_task,done_today
 
 line:
 	title: Tasks
 	yAxisLabel: Tasks in state
-	lineColor: blue
+	lineColor: teal,purple
 	fillGap: true
 	showLegend: true
 ```
