@@ -1,17 +1,15 @@
 ---
-<%*const file = tp.file.find_tfile(moment(tp.file.title,"YYYY-MM-DD").subtract(1,'days').format("YYYY-MM-DD")); const fileCache = app.metadataCache.getFileCache(file); let Totals_Task_Done = 1; if (fileCache?.frontmatter["Totals_Task_Done"]) { Totals_Task_Done = fileCache.frontmatter["Totals_Task_Done"];} if (fileCache?.frontmatter["Totals_Task_totals"]) { Totals_Task_totals = fileCache.frontmatter["Totals_Task_totals"];} if (fileCache?.frontmatter["Totals_Task_ToDo"]) { Totals_Task_ToDo = fileCache.frontmatter["Totals_Task_ToDo"];} -%>
 
-creation Date: <% tp.file.creation_date() %>
+creation Date: <% tp.date.now("YYYY-MM-DD") %>
 tags:
   - Daily
   - <%tp.file.title%>
-  - <%moment(tp.file.title,"YYYY-MM-DD").format("YYYY-[W]ww")%>
 linklist:
-  - '[[<% moment(tp.file.title, "YYYY-MM-DD").format("YYYY-[W]ww") %>]]'
+  - '[[<% moment(tp.file.title, "YYYY-MM-DD").format("YYYY-[W]ww")%>]]'
 aliases: 
-Totals_Task_Done: <%Totals_Task_Done%>
-Totals_Task_ToDo: <%Totals_Task_ToDo%>
-Totals_Task_totals: <%Totals_Task_totals%>
+Totals_Task_Done: <%* let done = app.metadataCache.getTags()['#Done']-%><%done%>
+Totals_Task_ToDo: <%* let todo = app.metadataCache.getTags()['#ToDo']-%><%todo%>
+Totals_Task_totals: <%* let totals = done + todo-%><%totals%>
 Daily_New_task: 0
 ---
 
