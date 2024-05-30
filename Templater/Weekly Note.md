@@ -31,17 +31,35 @@ sort file.name asc
 #PeriodicToDo 
 ```tracker
 searchType: frontmatter
-searchTarget: Totals_Task_Done, Totals_Task_ToDo,Totals_Task_totals,Daily_New_task
+searchTarget: Totals_Task_Done, Totals_Task_ToDo
 folder: Periodic Notes/1.Daily Notes
 startDate: <%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>
 endDate: <%moment(tp.file.title, "YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>
 
-datasetName: Done,ToDo,total,new
+datasetName: Done,ToDo
 
 line:
 	title: Tasks
 	yAxisLabel: Tasks in state
-	lineColor: green, red, yellow,blue
+	lineColor: green, red
+	showLegend: true
+	fillGap: true
+	legendPosition:
+```
+
+```tracker
+searchType: frontmatter
+searchTarget: Daily_New_task
+folder: Periodic Notes/1.Daily Notes
+startDate: <%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>
+endDate: <%moment(tp.file.title, "YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>
+
+datasetName: new
+
+line:
+	title: Tasks
+	yAxisLabel: Tasks in state
+	lineColor: blue
 	showLegend: true
 	fillGap: true
 	legendPosition:
