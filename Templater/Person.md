@@ -4,13 +4,13 @@ tags:
   - Person
   - 2024-W05
   - 2024-01-30
-  - Person
 FullName: 
-aliases: []
-linklist: []
+aliases: 
+linklist: 
 DoB: 
 DoD: 
 Age: 
-PersonalTitle:
+PersonalTitle: 
+Email:
 ---
 <% tp.file.cursor() %>
