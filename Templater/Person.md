@@ -1,5 +1,5 @@
 ---
-creation Date: 2023-08-27 16:32
+creation Date: <% tp.date.now("YYYY-MM-DD") %>
 tags:
   - Person
   - 2024-W05
