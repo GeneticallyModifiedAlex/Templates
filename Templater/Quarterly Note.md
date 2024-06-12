@@ -28,6 +28,14 @@ aliases:
 ## Files Created
 
 ## Tasks Done
-
 ## Tasks Left
+
 #PeriodicToDo 
+
+```dataview
+TASK 
+WHERE status != "x"
+WHERE created >= date("<%moment(tp.file.title,"YYYY-[Q]Q").startOf('quarter').format("YYYY-MM-DD")%>") AND created <= date("<%moment(tp.file.title,"YYYY-[Q]Q").endOf('quarter').format("YYYY-MM-DD")%>") 
+WHERE text != ""
+Group By file.name 
+```

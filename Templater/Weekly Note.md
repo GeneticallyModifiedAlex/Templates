@@ -11,10 +11,6 @@ aliases:
 
 # ChangLog
 Created:
-<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>
-
-<%moment(tp.file.title,"YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>
-
 ```dataview
 list WHERE file.cday <= date("<%moment(tp.file.title,"YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>") AND file.cday >= date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>") sort file.name asc
 ```
@@ -49,17 +45,17 @@ line:
 
 ```tracker
 searchType: frontmatter
-searchTarget: Daily_New_task
+searchTarget: Daily_New_task,Daily_DoneTask
 folder: Periodic Notes/1.Daily Notes
 startDate: <%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>
 endDate: <%moment(tp.file.title, "YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>
 
-datasetName: new
+datasetName: new tasks,done_today
 
 line:
 	title: Tasks
 	yAxisLabel: Tasks in state
-	lineColor: blue
+	lineColor: teal,pink
 	showLegend: true
 	fillGap: true
 	legendPosition:
