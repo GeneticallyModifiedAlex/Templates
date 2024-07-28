@@ -37,3 +37,4 @@ Periodic notes are based on the period of time they relate to and thus state obj
 - What did you Make (files created )
 - What did you want to do (things you wanted to achieve during the period and may contrast with the items that did in fact occur during that period).
 - How do you feel (any sections of reflection during any period greater than a week where simple task tracking becomes reductive)
+
