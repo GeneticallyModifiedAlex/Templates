@@ -1,60 +1,96 @@
 ---
-creation Date: <% tp.file.creation_date() %>
+creation Date: <%tp.file.creation_date()%>
 tags:
   - WeeklyNote
   - <%tp.file.title%>
 linklist:
-  - "[[<%tp.date.now("YYYY-[M]MM",0)%>]]"
+  - '[[<%moment(tp.file.title,"YYYY-[W]ww").format("YYYY-[M]MM")%>]]'
 aliases:
 ---
+<%moment(tp.file.title,"YYYY-[W]ww").format("YYYY-MM-DD")%>
+
 # ChangLog
 Created:
 ```dataview
-list WHERE file.cday <= date("<% tp.date.weekday("YYYY-MM-DD", 6)%>") AND file.cday >= date("<% tp.date.weekday("YYYY-MM-DD", 0) %>") sort file.name asc
+list WHERE file.cday <= date("<%moment(tp.file.title,"YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>") AND file.cday >= date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>") sort file.name asc
 ```
 Modified (May change with later modifications):
 ```dataview
 list 
-WHERE (file.mday <= date("<% tp.date.weekday("YYYY-MM-DD", 6)%>") AND file.mday >= date("<% tp.date.weekday("YYYY-MM-DD", 0) %>")) AND (file.cday != (date("<% tp.date.weekday("YYYY-MM-DD", 0) %>") OR date("<% tp.date.weekday("YYYY-MM-DD", 0) %>") OR date("<% tp.date.weekday("YYYY-MM-DD", 0) %>") OR date("<% tp.date.weekday("YYYY-MM-DD", 1) %>") OR date("<% tp.date.weekday("YYYY-MM-DD", 2) %>") OR date("<% tp.date.weekday("YYYY-MM-DD", 3) %>") OR date("<% tp.date.weekday("YYYY-MM-DD", 4) %>") OR date("<% tp.date.weekday("YYYY-MM-DD", 5) %>") OR date("<% tp.date.weekday("YYYY-MM-DD", 6) %>")))
+WHERE (file.mday <= date("<%moment(tp.file.title,"YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>") AND file.mday >= date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>")) AND file.cday != (date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>") OR date("<% tp.date.weekday("YYYY-MM-DD", 0)%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').add(1,'days').format("YYYY-MM-DD")%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').add(2,'days').format("YYYY-MM-DD")%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').add(3,'days').format("YYYY-MM-DD")%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').add(4,'days').format("YYYY-MM-DD")%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').add(5,'days').format("YYYY-MM-DD")%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').add(6,'days').format("YYYY-MM-DD")%>"))
 
 sort file.name asc
 ```
+
 # What Happened
-![[<% tp.date.weekday("YYYY-MM-DD", 0) %>#Stand Up]]
-![[<% tp.date.weekday("YYYY-MM-DD", 1) %>#Stand Up]]
-![[<% tp.date.weekday("YYYY-MM-DD", 2) %>#Stand Up]]
-![[<% tp.date.weekday("YYYY-MM-DD", 3) %>#Stand Up]]
-![[<% tp.date.weekday("YYYY-MM-DD", 4) %>#Stand Up]]
-# Tasks
-#PeriodicToDo 
 ```tracker
 searchType: frontmatter
-searchTarget: Totals_Task-Done, Totals_Task-ToDo,Totals_Task-total,Daily_New_task
+searchTarget: HoursOfSleep
 folder: Periodic Notes/1.Daily Notes
-startDate: <% tp.date.weekday("YYYY-MM-DD", 0) %>
-endDate: <% tp.date.weekday("YYYY-MM-DD", 6)%>
+startDate: <%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>
+endDate: <%moment(tp.file.title, "YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>
 
-datasetName: Done,ToDo,total,new
+datasetName: HoursOfSleep
 
 line:
 	title: Tasks
-	yAxisLabel: Tasks in state
-	lineColor: green, red, yellow,blue
+	yAxisLabel: Hours Sleep
+	lineColor: yellow
 	showLegend: true
 	fillGap: true
 	legendPosition:
 ```
+# Tasks
+#PeriodicToDo 
+```tracker
+searchType: frontmatter
+searchTarget: Totals_Task_Done, Totals_Task_ToDo
+folder: Periodic Notes/1.Daily Notes
+startDate: <%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>
+endDate: <%moment(tp.file.title, "YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>
+
+datasetName: Done,ToDo
+
+line:
+	title: Tasks
+	yAxisLabel: Tasks in state
+	lineColor: green, red
+	showLegend: true
+	fillGap: true
+	legendPosition:
+```
+
+```tracker
+searchType: frontmatter
+searchTarget: Daily_New_task,Daily_DoneTask
+folder: Periodic Notes/1.Daily Notes
+startDate: <%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>
+endDate: <%moment(tp.file.title, "YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>
+
+datasetName: new tasks,done_today
+
+line:
+	title: Tasks
+	yAxisLabel: Tasks in state
+	lineColor: teal,purple
+	showLegend: true
+	fillGap: true
+	legendPosition:
+```
+
 ## Remaining From This Week
 ```dataview
 TASK 
 WHERE status != "x"
-WHERE created >= date("<% tp.date.weekday("YYYY-MM-DD", 0) %>") AND created <= date("<% tp.date.weekday("YYYY-MM-DD", 6)%>") 
+WHERE created >= date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>") AND created <= date("<%moment(tp.file.title,"YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>") 
 WHERE text != ""
-Group By file.name 
+Group By priority
+Sort priority DESC
 ```
+
 ## Done
 ```dataview
 TASK
-WHERE completion >= date("<% tp.date.weekday("YYYY-MM-DD", 0) %>") AND completion <= date("<% tp.date.weekday("YYYY-MM-DD", 6)%>") WHERE text != ""
+WHERE completion >= date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>") AND completion <= date("<%moment(tp.file.title,"YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>") WHERE text != ""
 Group By c.date
 ```
