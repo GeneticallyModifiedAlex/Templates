@@ -105,19 +105,3 @@ WHERE text != ""
 
 SORT priority DESC
 ```
-
-## Remaining Tasks from past 7 Days
-
-```dataview
-TASK
-WHERE created >= date("<% moment(tp.file.title, "YYYY-MM-DD").startOf('week').format("YYYY-MM-DD") %>") and created <= date("<% moment(tp.file.title, "YYYY-MM-DD").endOf('week').format("YYYY-MM-DD") %>") OR start >= date("<% moment(tp.file.title, "YYYY-MM-DD").startOf('week').format("YYYY-MM-DD") %>") and start <= date("<% moment(tp.file.title, "YYYY-MM-DD").endOf('week').format("YYYY-MM-DD") %>") OR scheduled >= date("<% moment(tp.file.title, "YYYY-MM-DD").startOf('week').format("YYYY-MM-DD") %>") and scheduled <= date("<% moment(tp.file.title, "YYYY-MM-DD").endOf('week').format("YYYY-MM-DD") %>")
-WHERE created != date("<% moment(tp.file.title, "YYYY-MM-DD").subtract(1,'days').format("YYYY-MM-DD") %>")
-WHERE file.name != "<%tp.file.title%>"
-WHERE status != "x" AND status != "-"
-WHERE text != ""
-
-GROUP BY file.name
-SORT created DESC
-```
-
-`=this.file.name`
