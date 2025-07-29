@@ -5,28 +5,46 @@ tags:
   - <%tp.file.title%>
 linklist:
   - '[[<%moment(tp.file.title,"YYYY-[W]ww").format("YYYY-[M]MM")%>]]'
-aliases:
+aliases: 
+Weekly_New_task: 
+Weekly_DoneTask: 
+Totals_Task_ToDo: <%* let todo = app.metadataCache.getTags()['#ToDo']-%><%todo%>
+Totals_Task-Done: <%* let done = app.metadataCache.getTags()['#Done']-%><%done%>
+Totals_Task_totals: <%* let totals = done + todo-%><%totals%>
 ---
 <%moment(tp.file.title,"YYYY-[W]ww").format("YYYY-MM-DD")%>
 
 # ChangLog
 Created:
-<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>
-
-<%moment(tp.file.title,"YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>
-
 ```dataview
 list WHERE file.cday <= date("<%moment(tp.file.title,"YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>") AND file.cday >= date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>") sort file.name asc
 ```
 Modified (May change with later modifications):
 ```dataview
 list 
-WHERE (file.mday <= date("<%moment(tp.file.title,"YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>") AND file.mday >= date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>")) AND (file.cday != (date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>") OR date("<% tp.date.weekday("YYYY-MM-DD", 0)%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').add(1,'days').format("YYYY-MM-DD")%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').add(2,'days').format("YYYY-MM-DD")%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').add(3,'days').format("YYYY-MM-DD")%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').add(4,'days').format("YYYY-MM-DD")%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').add(5,'days').format("YYYY-MM-DD")%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').add(6,'days').format("YYYY-MM-DD")%>")))
+WHERE (file.mday <= date("<%moment(tp.file.title,"YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>") AND file.mday >= date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>")) AND file.cday != (date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>") OR date("<% tp.date.weekday("YYYY-MM-DD", 0)%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').add(1,'days').format("YYYY-MM-DD")%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').add(2,'days').format("YYYY-MM-DD")%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').add(3,'days').format("YYYY-MM-DD")%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').add(4,'days').format("YYYY-MM-DD")%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').add(5,'days').format("YYYY-MM-DD")%>") OR date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').add(6,'days').format("YYYY-MM-DD")%>"))
 
 sort file.name asc
 ```
 
 # What Happened
+```tracker
+searchType: frontmatter
+searchTarget: HoursOfSleep
+folder: Periodic Notes/1.Daily Notes
+startDate: <%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>
+endDate: <%moment(tp.file.title, "YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>
+
+datasetName: HoursOfSleep
+
+line:
+	title: Tasks
+	yAxisLabel: Hours Sleep
+	lineColor: yellow
+	showLegend: true
+	fillGap: true
+	legendPosition:
+```
 # Tasks
 #PeriodicToDo 
 ```tracker
@@ -59,7 +77,7 @@ datasetName: new tasks,done_today
 line:
 	title: Tasks
 	yAxisLabel: Tasks in state
-	lineColor: teal,pink
+	lineColor: teal,purple
 	showLegend: true
 	fillGap: true
 	legendPosition:
@@ -71,7 +89,8 @@ TASK
 WHERE status != "x"
 WHERE created >= date("<%moment(tp.file.title,"YYYY-[W]ww").startOf('week').format("YYYY-MM-DD")%>") AND created <= date("<%moment(tp.file.title,"YYYY-[W]ww").endOf('week').format("YYYY-MM-DD")%>") 
 WHERE text != ""
-Group By file.name 
+Group By priority
+Sort priority DESC
 ```
 
 ## Done
