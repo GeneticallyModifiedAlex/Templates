@@ -5,45 +5,43 @@ tags:
   - <%tp.file.title%>
 linklist:
   - '[[<% moment(tp.file.title, "YYYY-MM-DD").format("YYYY-[W]ww")%>]]'
-aliases:
+aliases: 
 Totals_Task_Done: <%* let done = app.metadataCache.getTags()['#Done']-%><%done%>
 Totals_Task_ToDo: <%* let todo = app.metadataCache.getTags()['#ToDo']-%><%todo%>
 Totals_Task_totals: <%* let totals = done + todo-%><%totals%>
 Daily_New_task: 0
-Daily_DoneTask:
-HoursOfSleep:
+Daily_DoneTask: 
+HoursOfSleep: 
 Totals_Old_ToDo: <%* let OldTodo = app.metadataCache.getTags()['#OldToDo']-%><%OldTodo%>
 Totals_Old_Done: <%* let OldDone = app.metadataCache.getTags()['#OldDone']-%><%OldDone%>
 ---
-
-> Age: <%\*
-> let now = moment(tp.file.title,"YYYY-MM-DD");
-> let pastDate = moment('DOB',"YYYY-MM-DD");
-> let ageInWeeks = moment.duration(now.diff(pastDate,'weeks'),'weeks').asWeeks();
+>Age: <%* 
+let now = moment(tp.file.title,"YYYY-MM-DD");
+let pastDate = moment('dob',"YYYY-MM-DD");
+let ageInWeeks = moment.duration(now.diff(pastDate,'weeks'),'weeks').asWeeks();
 
 let years = moment.duration(now.diff(pastDate,'years'),'years').asYears(); pastDate.add(years,'years');
 
-let months = moment.duration(now.diff(pastDate,'months'),'months').asMonths(); pastDate.add(months,'months');
+let months = moment.duration(now.diff(pastDate,'months'),'months').asMonths(); pastDate.add(months,'months'); 
 
 let weeks = moment.duration(now.diff(pastDate,'weeks'),'weeks').asWeeks();
 pastDate.add(weeks,'weeks');
 
 let days = moment.duration(now.diff(pastDate,'days'),'days').asDays();
 %>
-
-> <%ageInWeeks%> Weeks and <%days%> Days Old
-> <%years%> Years <%months%> Months <%weeks%> Weeks <%days%> days Old
+><%ageInWeeks%> Weeks and <%days%> Days Old
+><%years%> Years <%months%> Months <%weeks%> Weeks <%days%> days Old
 
 # Today
-
 ## Stand Up
 
-> _<% moment(tp.file.title, "YYYY-MM-DD").format("dddd") %>_
+>*<% moment(tp.file.title, "YYYY-MM-DD").format("dddd") %>*
+> 
+> 
 
 ## Change Log
 
 Created Today:
-
 ```dataview
 list
 WHERE file.cday = date("<%tp.file.title%>")
@@ -51,7 +49,6 @@ sort file.name asc
 ```
 
 Modified Today(may change due to later modifications):
-
 ```dataview
 list
 WHERE file.mday = date("<%tp.file.title%>") AND file.cday != date("<%tp.file.title%>")
@@ -62,15 +59,18 @@ sort file.name asc
 
 Goals:
 
+
 Outputs:
 
-Effort:
-#PeriodicToDo
 
+Effort:
+
+#PeriodicToDo 
 - [ ] #ToDo Update Tasks at EoD ➕ <% moment(tp.file.title, "YYYY-MM-DD").format("YYYY-MM-DD") %>
+- [ ] 
+
 
 ### Other File ToDo's
-
 ```dataview
 TASK
 WHERE created = date("<% moment(tp.file.title, "YYYY-MM-DD").format("YYYY-MM-DD") %>") OR start = date("<% moment(tp.file.title, "YYYY-MM-DD").format("YYYY-MM-DD") %>") OR scheduled = date("<% moment(tp.file.title, "YYYY-MM-DD").format("YYYY-MM-DD") %>") OR due = date("<% moment(tp.file.title, "YYYY-MM-DD").format("YYYY-MM-DD") %>")
