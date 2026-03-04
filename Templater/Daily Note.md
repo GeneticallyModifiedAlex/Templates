@@ -12,25 +12,29 @@ Totals_Task_totals: <%* let totals = done + todo-%><%totals%>
 Daily_New_task: 0
 Daily_DoneTask: 
 HoursOfSleep: 
-Totals_Old_ToDo: <%* let OldTodo = app.metadataCache.getTags()['#OldToDo']-%><%OldTodo%>
-Totals_Old_Done: <%* let OldDone = app.metadataCache.getTags()['#OldDone']-%><%OldDone%>
 ---
 >Age: <%* 
 let now = moment(tp.file.title,"YYYY-MM-DD");
 let pastDate = moment('dob',"YYYY-MM-DD");
+let pastDate2 = moment('dob',"YYYY-MM-DD");
 let ageInWeeks = moment.duration(now.diff(pastDate,'weeks'),'weeks').asWeeks();
 
 let years = moment.duration(now.diff(pastDate,'years'),'years').asYears(); pastDate.add(years,'years');
+pastDate2.add(years,'years');
 
 let months = moment.duration(now.diff(pastDate,'months'),'months').asMonths(); pastDate.add(months,'months'); 
 
 let weeks = moment.duration(now.diff(pastDate,'weeks'),'weeks').asWeeks();
 pastDate.add(weeks,'weeks');
+let weeks2 = moment.duration(now.diff(pastDate2,'weeks'),'weeks').asWeeks();
+pastDate2.add(weeks2,"weeks")
 
 let days = moment.duration(now.diff(pastDate,'days'),'days').asDays();
 %>
 ><%ageInWeeks%> Weeks and <%days%> Days Old
 ><%years%> Years <%months%> Months <%weeks%> Weeks <%days%> days Old
+><%years%> Years  <%weeks2%> Weeks
+
 
 # Today
 ## Stand Up
